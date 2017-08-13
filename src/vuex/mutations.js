@@ -1,12 +1,6 @@
-import * as types from './mutation-types'
-
-const mutations = {
-  types.UPDATE_NEWS(state, news) {
-    state.news = news
-  },
-  types.REQUEST_NEWS(state) {},
-  types.SORT_NEWS(state, news){},
-  types.DELETE_NEWS(state, news) {},
+export function UPDATE_NEWS(state, news) {
+  state.news = news
 }
-
-export default mutations
+export function REQUEST_NEWS(state) {}
+export function SORT_NEWS(state, news){}
+export function DELETE_NEWS(state, news) {}
