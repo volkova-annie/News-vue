@@ -3,12 +3,9 @@ import Vuex from 'vuex'
 import store from './vuex/store'
 import App from './components/App'
 
-
-// Vue.config.productionTip = false
-
 new Vue({
   el: '#root',
-  template: '<App/>',
+  template: '<app></app>',
   store,
   components: { App },
   methods: {
