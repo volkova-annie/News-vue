@@ -7,7 +7,7 @@ function resolve (dir) {
 }
 
 module.exports = {
-  entry: './src/main.js',
+  entry: {app: './src/index.js'},
   output: {
     path: path.resolve(__dirname, './static'),
     publicPath: '/static/',
@@ -45,15 +45,20 @@ module.exports = {
      ]
    },
    plugins: [
-     new ExtractTextPlugin({
-       filename: '[name].css',
-       disable: false,
-       allChunks: true
-     }),
-     new webpack.ProvidePlugin({
-       fetch: 'imports-loader?this=>global!exports-loader?global.fetch!whatwg-fetch',
-       EventSource: 'imports-loader?this=>global!exports-loader?global.EventSource!event-source-polyfill',
-     }),
+    new ExtractTextPlugin({
+      filename: '[name].css',
+      disable: false,
+      allChunks: true
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: '"development"'
+      }
+    }),
+    // new webpack.ProvidePlugin({
+    //  fetch: 'imports-loader?this=>global!exports-loader?global.fetch!whatwg-fetch',
+    //  EventSource: 'imports-loader?this=>global!exports-loader?global.EventSource!event-source-polyfill',
+    // }),
    ],
    resolve: {
      extensions: ['.js', '.vue', '.json'],
