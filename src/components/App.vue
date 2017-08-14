@@ -1,16 +1,13 @@
 <template>
-  <div id="app">
-    <span>{{count}}</span>
-    <p>Hello</p>
-    <!-- <sort></sort> -->
-    <!-- <news-list></news-list> -->
-    <!-- <news-item v-for="item in news"></news-item> -->
+  <div id='app'>
+    <sort></sort>
+    <news-list></news-list>
   </div>
 </template>
 
 <script>
 import NewsList from './NewsList.vue';
-// import Sort from './Sort';
+import Sort from './Sort';
 import {mapActions, mapGetters} from 'vuex'
 
 export default {
@@ -18,22 +15,28 @@ export default {
   methods: mapActions([
     'updateNews',
     'requestNews',
+    'sortNews'
   ]),
   mounted: function () {
     this.requestNews()
   },
   components: {
     NewsList,
-    // Sort
+    Sort
   },
   computed: {
     ...mapGetters([
-      'news',
-      'count'
+      'news'
     ])
   },
 }
 </script>
 
 <style>
+.app {
+  min-width: 768px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
 </style>
