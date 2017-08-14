@@ -7,10 +7,11 @@ import * as getters from './getters'
 Vue.use(Vuex)
 
 const state = {
-  news: {}
+  news: []
 }
 
 export default new Vuex.Store({
+  state,
   actions,
   mutations,
   getters,
