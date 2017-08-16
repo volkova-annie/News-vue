@@ -12,11 +12,13 @@ import {mapActions, mapGetters} from 'vuex'
 
 export default {
   name: 'app',
-  methods: mapActions([
-    'updateNews',
-    'requestNews',
-    'sortNews'
-  ]),
+  methods: {
+    ...mapActions([
+      'updateNews',
+      'requestNews',
+      'sortNews'
+    ])
+  },
   mounted: function () {
     this.requestNews()
   },
