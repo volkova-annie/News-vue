@@ -27,7 +27,16 @@ export function deleteOneNews({getters, commit}, url) {
 export function sortNews ({getters, commit}, event) {
   const sorter = event.target.value
   const news = getters.news
-  console.log(news);
+
+  function localeCompare(a, b) {
+    return  a.localeCompare(b)
+  }
+
+  // news.localeCompare(a, b)
+
+//  news.sort((a, b) => {
+//   return a.localeCompare(b)
+// })
 
   news.sort((a, b) => {
     const x = a[sorter] || "";
