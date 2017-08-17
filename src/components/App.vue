@@ -16,7 +16,7 @@ export default {
     ...mapActions([
       'updateNews',
       'requestNews',
-      'sortNews'
+      // 'sortNews'
     ])
   },
   mounted: function () {

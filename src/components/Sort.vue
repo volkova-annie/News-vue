@@ -14,13 +14,9 @@
 import {mapActions} from 'vuex'
 export default {
   methods: {
-    // ...mapActions([
-    //   'sortNews'
-    // ])
-    sortNews(event) {
-
-      return this.$store.dispatch('sortNews', event)
-    }
+    ...mapActions([
+      'sortNews'
+    ])
   }
 }
 </script>

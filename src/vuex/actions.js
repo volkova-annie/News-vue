@@ -28,22 +28,16 @@ export function sortNews ({getters, commit}, event) {
   const sorter = event.target.value
   const news = getters.news
 
-  function localeCompare(a, b) {
-    return  a.localeCompare(b)
-  }
-
-  // news.localeCompare(a, b)
-
-//  news.sort((a, b) => {
-//   return a.localeCompare(b)
-// })
-
   news.sort((a, b) => {
-    const x = a[sorter] || "";
-    const y = b[sorter] || "";
-    if (x < y) return -1;
-    if (x > y) return 1;
-    return 0;
+    const x = a[sorter] || '';
+    const y = b[sorter] || '';
+
+    if (typeof x === 'string') {
+      return  x.localeCompare(y)
+    }
+
+    return x-y;
   })
+
   commit('UPDATE_NEWS', news)
 }
